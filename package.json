@@ -3,6 +3,10 @@
   "displayName": "Malgo",
   "description": "Syntax highlighting for Malgo",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/malgo-lang/vscode-malgo.git"
+  },
   "engines": {
     "vscode": "^1.70.0"
   },
