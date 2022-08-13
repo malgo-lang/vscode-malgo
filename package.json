@@ -1,0 +1,25 @@
+{
+  "name": "vscode-malgo",
+  "displayName": "Malgo",
+  "description": "Syntax highlighting for Malgo",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "malgo",
+      "aliases": ["Malgo", "malgo"],
+      "extensions": [".mlg"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "malgo",
+      "scopeName": "source.malgo",
+      "path": "./syntaxes/malgo.tmLanguage.json"
+    }]
+  }
+}
