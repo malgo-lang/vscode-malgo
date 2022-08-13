@@ -5,11 +5,14 @@ patterns:
 - include: "#comments"
 - include: "#keywords"
 - include: "#strings"
+- include: "#characters"
+- include: "#numbers"
 - match: '(\()\s*(\))'
   name: constant.language.unit.malgo
   captures:
     '1': {name: punctuation.paren.malgo}
     '2': {name: punctuation.paren.malgo}
+- include: "#data_constructor"
 repository:
   comments:
     patterns:
@@ -40,3 +43,32 @@ repository:
     patterns:
     - name: constant.character.escape.malgo
       match: '\\.'
+  characters:
+    name: string.quoted.single.malgo
+    begin: "'"
+    end: "'"
+    patterns:
+    - name: constant.character.escape.malgo
+      match: '\\.'
+  numbers:
+    patterns:
+      - include: '#float_literals'
+      - include: '#integer_literals'
+  float_literals:
+    # ?xで正規表現中の空白やコメントを無視する
+    match: >-
+      (?x)
+        ([0-9][_0-9]*\.[0-9][_0-9]*(?:[eE][-+]?[0-9][_0-9]*)?
+        |[0-9][_0-9]*[eE][-+]?[0-9][_0-9]*
+        )
+    captures:
+      '1': {name: constant.numeric.floating.decimal.malgo}
+  integer_literals:
+    match: >-
+      ([0-9][_0-9]*)
+    captures:
+      '1': {name: constant.numeric.integer.malgo}
+  data_constructor:
+    match: >-
+      \b(?<!')[\p{Lu}\p{Lt}][\p{Ll}_\p{Lu}\p{Lt}\p{Nd}']*(?![\.'\w])
+    name: constant.other.malgo
