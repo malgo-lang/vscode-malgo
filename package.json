@@ -13,6 +13,10 @@
   "categories": [
     "Programming Languages"
   ],
+  "activationEvents": [
+    "onLanguage:malgo"
+  ],
+  "main": "./out/extension.js",
   "contributes": {
     "languages": [
       {
@@ -35,8 +39,21 @@
       }
     ]
   },
-  "devDependencies": {
-    "js-yaml": "^4.1.0"
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -b",
+    "watch": "tsc -b -w",
+    "lint": "eslint ./src --ext .ts,.tsx"
   },
-  "private": true
+  "devDependencies": {
+    "@types/node": "^18.7.3",
+    "@types/vscode": "^1.70.0",
+    "eslint": "^8.21.0",
+    "js-yaml": "^4.1.0",
+    "typescript": "^4.7.4"
+  },
+  "private": true,
+  "dependencies": {
+    "vscode-languageclient": "^8.0.2"
+  }
 }
