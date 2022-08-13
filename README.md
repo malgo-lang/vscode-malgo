@@ -1,4 +1,4 @@
-# Malgo Syntax Highlighting Support
+# Malgo Support for Visual Studio Code
 
 Syntax highlighting support for Malgo in Visual Studio Code.
 
