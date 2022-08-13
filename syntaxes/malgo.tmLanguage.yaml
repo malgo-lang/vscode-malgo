@@ -2,9 +2,33 @@
 name: Malgo
 scopeName: source.malgo
 patterns:
+- include: "#comments"
 - include: "#keywords"
 - include: "#strings"
+- match: '(\()\s*(\))'
+  name: constant.language.unit.malgo
+  captures:
+    '1': {name: punctuation.paren.malgo}
+    '2': {name: punctuation.paren.malgo}
 repository:
+  comments:
+    patterns:
+    # Line comments
+    - begin: '--'
+      beginCaptures:
+        '0': {name: punctuation.definition.comment.malgo}
+      end: \n
+      name: comment.line.double-dash.malgo
+    - {include: "#block_comment"}
+  block_comment:
+      applyEndPatternLast: 1
+      begin: '\{-'
+      captures:
+        '0': {name: punctuation.definition.comment.malgo}
+      end: '-\}'
+      name: comment.block.malgo
+      patterns:
+        - include: "#block_comment"
   keywords:
     patterns:
     - name: keyword.control.malgo
