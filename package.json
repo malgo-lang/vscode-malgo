@@ -10,16 +10,28 @@
     "Programming Languages"
   ],
   "contributes": {
-    "languages": [{
-      "id": "malgo",
-      "aliases": ["Malgo", "malgo"],
-      "extensions": [".mlg"],
-      "configuration": "./language-configuration.json"
-    }],
-    "grammars": [{
-      "language": "malgo",
-      "scopeName": "source.malgo",
-      "path": "./syntaxes/malgo.tmLanguage.json"
-    }]
+    "languages": [
+      {
+        "id": "malgo",
+        "aliases": [
+          "Malgo",
+          "malgo"
+        ],
+        "extensions": [
+          ".mlg"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "malgo",
+        "scopeName": "source.malgo",
+        "path": "./syntaxes/malgo.tmLanguage.json"
+      }
+    ]
+  },
+  "devDependencies": {
+    "js-yaml": "^4.1.0"
   }
 }

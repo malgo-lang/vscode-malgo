@@ -1,0 +1,18 @@
+"$schema": https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json
+name: Malgo
+scopeName: source.malgo
+patterns:
+- include: "#keywords"
+- include: "#strings"
+repository:
+  keywords:
+    patterns:
+    - name: keyword.control.malgo
+      match: '\b(module|foreign|import|data|type|let|infixl|infixr|infix)\b'
+  strings:
+    name: string.quoted.double.malgo
+    begin: '"'
+    end: '"'
+    patterns:
+    - name: constant.character.escape.malgo
+      match: '\\.'
